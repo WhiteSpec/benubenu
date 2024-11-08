@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                       ElevatedButton(
                         onPressed: () {
                           // WhatsApp URL scheme to send a message
-                          String phoneNumber = "083836100924"; // Replace with the phone number you want to contact
+                          String phoneNumber = "1234567890"; // Replace with the phone number you want to contact
                           String message = "Hello, I would like to claim the item: ${item.title}";
                           String url = "https://wa.me/$phoneNumber?text=$message";
 
@@ -116,6 +116,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  // Function to filter the items based on the search query (only by title)
   void _filterItems() {
     String query = _searchController.text.toLowerCase();
     setState(() {
@@ -124,7 +125,6 @@ class _HomePageState extends State<HomePage> {
       }).toList();
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -335,6 +335,41 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        child: BottomAppBar(
+          color: Color(0xFF006769),
+          shape: CircularNotchedRectangle(),
+          notchMargin: 6.0,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildBottomNavButton(Icons.arrow_back),
+                _buildBottomNavButton(Icons.home),
+                _buildBottomNavButton(Icons.settings),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBottomNavButton(IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 7.0),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+        ),
+        child: IconButton(
+          icon: Icon(icon, color: Color(0xFF006769)),
+          onPressed: () {},
         ),
       ),
     );
