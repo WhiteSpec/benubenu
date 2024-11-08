@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                       ElevatedButton(
                         onPressed: () {
                           // WhatsApp URL scheme to send a message
-                          String phoneNumber = "1234567890"; // Replace with the phone number you want to contact
+                          String phoneNumber = "083836100924"; // Replace with the phone number you want to contact
                           String message = "Hello, I would like to claim the item: ${item.title}";
                           String url = "https://wa.me/$phoneNumber?text=$message";
 
